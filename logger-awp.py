@@ -21,3 +21,4 @@ async def name_change():
 
 # Запуск бота.
 token = os.environ.get('BOT_TOKEN')
+bot.run(token)
