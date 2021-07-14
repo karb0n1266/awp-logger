@@ -2,7 +2,3 @@ discord.py
 aiohttp
 websockets
 chardet
-valve.source.a2s
-valve
-os
-tasks
