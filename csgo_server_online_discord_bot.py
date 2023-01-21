@@ -4,7 +4,10 @@ import os
 
 from discord.ext import tasks, commands
 
-bot = commands.Bot(	command_prefix = '!' ) # Инициализация бота и префикса.
+bot = commands.Bot(command_prefix = '!') # Инициализация бота и префикса.
+
+ip = '123.123.123.123'
+port = 27015
 
 # Событие запуска бота.
 @bot.event
@@ -14,8 +17,8 @@ async def on_ready():
 
 @tasks.loop(seconds = 5)
 async def name_change():
-	SERVER_ADDRESS1 = ('46.148.138.77', 27085)
-	with valve.source.a2s.ServerQuerier(SERVER_ADDRESS1) as server:
+	SERVER_ADDRESS = (ip, port)
+	with valve.source.a2s.ServerQuerier(SERVER_ADDRESS) as server:
 		info1 = server.info()
 	await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type = discord.ActivityType.watching,	name = "на {player_count}/{max_players} игроков.".format(**info1)))
 
